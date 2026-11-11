@@ -1,0 +1,100 @@
+:root {
+  --blue: #091b86;
+  --blue-dark: #060a38;
+  --lilac: #eee4fb;
+  --lilac-deep: #e2d2f8;
+  --page: #e6dafa;
+  --ink: #0e0c1a;
+  --muted: #7d6f94;
+}
+* { box-sizing: border-box; margin: 0; }
+[hidden] { display: none !important; }
+
+body {
+  font-family: "Poppins", system-ui, sans-serif;
+  background: var(--page);
+  color: var(--ink);
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.app {
+  width: 100%;
+  max-width: 430px;
+  min-height: 100vh;
+  background: var(--purple);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- background 1: header ---------- */
+.hero { padding: 28px 24px 56px; color: #fff; }
+.hero-date { text-align: center; font-weight: 500; margin-bottom: 26px; }
+.hero-row { display: flex; justify-content: space-between; align-items: center; }
+.hero h1 { font-size: 1.9rem; font-weight: 500; line-height: 1.2; }
+.count { font-size: 0.85rem; opacity: 0.85; }
+.add-new {
+  background: #090f6b; color: var(--purple-dark); border: none;
+  padding: 12px 22px; border-radius: 10px; font: inherit; font-weight: 600; cursor: pointer;
+  box-shadow: 0 6px 14px rgba(13, 8, 77, 0.25);
+}
+
+/* ---------- background 2: white panel ---------- */
+.panel {
+  flex: 1; background: #fff; border-radius: 32px 32px 0 0;
+  margin-top: -32px; padding: 26px 20px 40px;
+}
+.panel h2 { font-size: 1.15rem; font-weight: 600; margin: 22px 0 14px; }
+
+/* add-task form */
+.task-form { display: grid; gap: 10px; margin-bottom: 22px; padding: 16px; background: var(--lilac); border-radius: 16px; }
+.task-form input {
+  padding: 12px; border: 1px solid var(--lilac-deep); border-radius: 10px;
+  font: inherit; background: #fff;
+}
+.task-form button {
+  padding: 12px; border: none; border-radius: 10px; cursor: pointer;
+  background: var(--purple); color: #0b0c4e; font: inherit; font-weight: 600;
+}
+
+/* week strip = the mini calendar */
+.week-nav { display: flex; align-items: center; gap: 6px; }
+.week-nav > button {
+  border: none; background: none; font-size: 1.8rem; color: var(--purple-dark); cursor: pointer; padding: 0 4px;
+}
+.week { flex: 1; display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
+.day {
+  border: none; background: var(--lilac); border-radius: 12px; padding: 8px 0;
+  font: inherit; cursor: pointer; color: var(--ink); text-align: center;
+}
+.day small { display: block; font-size: 0.65rem; color: var(--muted); }
+.day strong { font-size: 1rem; font-weight: 600; }
+.day.selected { background: var(--purple); color: #2a3cdd; box-shadow: 0 6px 12px rgba(155, 107, 232, 0.4); }
+.day.selected small { color: #3a3b69; }
+.day.today:not(.selected) { outline: 2px solid var(--purple); }
+
+/* task list */
+#taskList { list-style: none; padding: 0; display: grid; gap: 10px; }
+.task {
+  display: flex; align-items: center; gap: 12px; padding: 14px;
+  background: var(--lilac); border-radius: 12px; box-shadow: 0 2px 6px rgba(120, 80, 190, 0.12);
+}
+.task input[type="checkbox"] { width: 20px; height: 20px; accent-color: var(--purple); flex: none; cursor: pointer; }
+.task-info { flex: 1; min-width: 0; }
+.task-text { font-weight: 500; overflow-wrap: anywhere; }
+.task-time { font-size: 0.78rem; color: var(--muted); }
+.task.done .task-text { text-decoration: line-through; color: var(--muted); }
+.delete {
+  border: none; background: none; color: var(--muted); font-size: 1.3rem; cursor: pointer; line-height: 1;
+}
+.delete:hover { color: #c0392b; }
+.empty { text-align: center; color: var(--muted); padding: 20px 0; }
+
+:focus-visible { outline: 3px solid #f4b63f; outline-offset: 2px; }
+
+/* on bigger screens, show the app like a phone */
+@media (min-width: 600px) {
+  body { align-items: center; padding: 30px 0; }
+  .app { min-height: 760px; border-radius: 32px; overflow: hidden; box-shadow: 0 20px 50px rgba(80, 40, 140, 0.3); }
+}

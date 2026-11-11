@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+
+    <!-- BACKGROUND 1: the purple header -->
+    <header class="hero">
+      <p id="dateText" class="hero-date"></p>
+      <div class="hero-row">
+        <div>
+          <h1 id="dayTitle">Today</h1>
+          <p id="taskCount" class="count"></p>
+        </div>
+        <button id="newBtn" class="add-new" type="button">Add New</button>
+      </div>
+    </header>
+
+    <!-- BACKGROUND 2: the white panel where the list stays -->
+    <section class="panel">
+
+      <div id="taskForm" class="task-form" hidden>
+        <input type="text" id="taskInput" placeholder="What do you need to do?">
+        <input type="time" id="timeInput">
+        <button id="addBtn" type="button">Create Task</button>
+      </div>
+
+      <div class="week-nav">
+        <button id="prevWeek" type="button" aria-label="Previous week">&lsaquo;</button>
+        <div id="week" class="week"></div>
+        <button id="nextWeek" type="button" aria-label="Next week">&rsaquo;</button>
+      </div>
+
+      <h2>My Tasks</h2>
+      <ul id="taskList"></ul>
+      <p id="emptyMsg" class="empty" hidden>No tasks for this day yet. Tap Add New to plan one.</p>
+
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
